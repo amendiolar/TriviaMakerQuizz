@@ -1,0 +1,49 @@
+
+$bg_color: #e3e4e5;
+
+html, body{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: $bg_color;
+    
+    .bienvenida{
+        text-align: center;
+
+        ul{
+            text-align: left;
+            margin-left: 35%;
+        }
+    }
+
+    .imagen{
+        height: 50%;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+header{
+    background-color: #B951CA;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 35px;
+
+    .headerName{
+        width: 20%;
+    }
+
+    .formHeader{
+        width: 75%;
+        margin-left: 15px;
+    }
+
+    input{
+        background-color: green;
+        color: white;
+    }
+
+}
