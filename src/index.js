@@ -26,15 +26,23 @@ comenzarButton.addEventListener('click', function(){
 
         axios.get(busqueda)
         .then((response) => {
-            // Aqui obtengo los paises
+            // Aqui obtengo las preguntas
             console.log(response.status) // Status code de la peticion
             console.log(response.data) // data es donde viene la informacion buscada
-            const quizz = new Quizz(response.data)
-            quizz.start()
+            console.log(response.data.results.length)
+            console.log(response.data.results)
+            const quizz = new Quizz(response.data.results)
+            quizz.addQuestions()
         })
         .catch((error) => {
-            console.log("Error al solicitar datos", error.response.status)
-            // Aqui paso un error al tratar de traer los paises
+            // error while getting json
+            if(error.response){
+                console.log("Error al solicitar datos", error.response.data);
+            // Aqui paso un error al tratar de traer las preguntas
+            } else {
+                console.log(error);
+            }
+            
 
         })        
 
