@@ -8,25 +8,26 @@ class Quizz{
 
     addQuestions(){
         console.log(this.questions)
+        const container = document.querySelector(".container");
         for(var i=0; i<this.questions.length; i++){
-          const container = document.querySelector(".container");
           const textDiv = document.createElement('div');
-          const textElement = document.createElement('p');
-          textElement.innerHTML = this.questions[i].questions;
-          const textForm = document.createElement('select');
+          textDiv.className = "trivia-div";
+          const pregunta = document.createElement('label');
+          pregunta.innerHTML = [i+1]+" "+this.questions[i].question;
+          const salto0 = document.createElement('br');
+          salto0.innerHTML;
+          textDiv.appendChild(pregunta);
+          textDiv.appendChild(salto0);
+        
           if(this.questions[i].type === "multiple"){
-              const textOption1 = document.createElement('input');
-              textOption1.type = "radio";
-              textOption1.value = `${this.questions[i].correct_answer}`;
-              textOption1.innerHTML = this.questions[i].correct_answer;
-              console.log(textOption1);
+              const divRespuestas = document.createElement('div');
+              divRespuestas.innerHTML=
+              ` <label><input type="radio" value=${this.questions[i].correct_answer}>${this.questions[i].correct_answer}</label><br>
+                <label><input type="radio" value=${this.questions[i].incorrect_answers[0]}>${this.questions[i].incorrect_answers[0]}</label><br>
+                <label><input type="radio" value=${this.questions[i].incorrect_answers[1]}>${this.questions[i].incorrect_answers[1]}</label><br>
+                <label><input type="radio" value=${this.questions[i].incorrect_answers[2]}>${this.questions[i].incorrect_answers[2]}</label><br>`
+              textDiv.appendChild(divRespuestas);
 
-              const textOption2 = document.createElement('input');
-              textOption2.innerHTML = this.questions[i].incorrect_answers[0];
-              const textOption3 = document.createElement('input');
-              textOption3.innerHTML = this.questions[i].incorrect_answers[1];
-              const textOption4 = document.createElement('input');
-              textOption4.innerHTML = this.questions[i].incorrect_answers[2];
           } else {
             const textOption1 = document.createElement('input');
             textOption1.innerHTML = this.questions[i].correct_answer;
@@ -34,12 +35,9 @@ class Quizz{
             textOption2.innerHTML = this.questions[i].incorrect_answer;
           }
 
-          textDiv.appendChild(textElement);
-          textDiv.appendChild(textForm);
-          textDiv.appendChild(textOption1);
-          textDiv.appendChild(textOption2);
-          textDiv.appendChild(textOption3);
-          textDiv.appendC(textOption4);
+          
+          
+          
           container.append(textDiv);
         }
       }

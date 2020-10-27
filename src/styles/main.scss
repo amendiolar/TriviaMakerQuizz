@@ -49,3 +49,15 @@ header{
     }
 
 }
+
+.container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.trivia-div{
+    width: 30%;
+    margin: 5px;
+}
+
+
