@@ -7,7 +7,8 @@ class Quizz{
 
 
     addQuestions(){
-        console.log(this.questions)
+        console.log(this.questions);
+        const correctas = [];
         const container = document.querySelector(".container");
         for(var i=0; i<this.questions.length; i++){
           const textDiv = document.createElement('div');
@@ -28,19 +29,40 @@ class Quizz{
                 <label><input type="radio" value=${this.questions[i].incorrect_answers[2]}>${this.questions[i].incorrect_answers[2]}</label><br>`
               textDiv.appendChild(divRespuestas);
 
+              correctas.push(this.questions[i].correct_answer);
+
+
           } else {
-            const textOption1 = document.createElement('input');
-            textOption1.innerHTML = this.questions[i].correct_answer;
-            const textOption2 = document.createElement('input');
-            textOption2.innerHTML = this.questions[i].incorrect_answer;
+            const divRespuestasBooleanas = document.createElement('div');
+              divRespuestasBooleanas.innerHTML=
+              ` <label><input type="radio" value=${this.questions[i].correct_answer}>${this.questions[i].correct_answer}</label><br>
+                <label><input type="radio" value=${this.questions[i].incorrect_answers}>${this.questions[i].incorrect_answers}</label><br>`
+              textDiv.appendChild(divRespuestasBooleanas);
+
           }
 
           
-          
-          
           container.append(textDiv);
         }
+
+        console.log(correctas);
+
+        const evaluateButton = document.createElement('input');
+        evaluateButton.type= "submit";
+        evaluateButton.value="Submit";
+        evaluateButton.innerHTML;
+          
+        container.append(evaluateButton);
+
       }
+
+
+    evaluate(){
+
+
+
+    }
+
 
 
 
